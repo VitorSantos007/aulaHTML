@@ -1,0 +1,57 @@
+body{
+    background-color: gray;
+}
+
+.pd{
+   padding-top: 20px;
+   justify-content: stretch;
+}
+
+.titulo{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+
+.txt{
+    text-align: justify;
+    margin: 4px;
+    color: black;
+}
+
+.img1{
+    height: 400px;
+    width: 400px;
+}
+
+.img2{
+    height: 200px;
+    width: 200px;
+}
+
+.img3{
+    height: 100px;
+    width: 100px;
+}
+
+.link{
+    text-transform: none;
+    font-weight: bold;
+}
+
+.conteudo{
+    background-color: whitesmoke;
+    margin: 20px;
+}
+
+.container{
+    margin: 5px;
+    padding: 5px;
+
+}
+
+.cont-flex{
+    display:flex
+
+}
