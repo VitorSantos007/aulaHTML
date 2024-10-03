@@ -1,11 +1,14 @@
-from flask import Flask # IMPORTA O FLASK
+from flask import (Flask, request) # IMPORTA O FLASK
 
 app = Flask (__name__) #CRIA UMA INSTÂNCIA
 
 @app.route("/", methods=('GET',)) #ASSINA UMA ROTA
  
 def index(): # FUNÇÃO RESPONSÁVEL PELA PÁGINA
-    return "<h1>Página Inicial</h1> <p>Eu sou fulano</p>"
+    nome = request.args.get ('nome')
+    # HTML RETORNADO
+    return f"""<h1>Página Inicial</h1>
+        <p>Olá {nome}, que nome 🔑"""
 
 
 @app.route("/galeria", methods=('GET',)) #ASSINA UMA ROTA
