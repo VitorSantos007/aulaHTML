@@ -34,14 +34,6 @@ def teste():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <ul><li>{p1}</ul></li><ul><li>{p2}</ul></li><ul><li>{p3}</ul></li>
     """
 
-@app.route("/area", methods=('GET',)) #ASSINA UMA ROTA
-def area():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
-    p1 = float (request.args.get('a'))
-    p2 = float (request.args.get('l'))
-    return f"""<h1>A área informada: {p1*p2}</h1>
-    <ul><li><p>Altura: {p1}</p></ul></li><ul><li><p>Largura: {p2}</p></ul></li>
-    """
-
 @app.route("/nmr", methods=('GET',)) #ASSINA UMA ROTA
 def nmr():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
     p1 = int (request.args.get('n'))
@@ -61,3 +53,10 @@ def nsb():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
     p2 = request.args.get('sb')
 
     return f"""<p>{p2}, {p1}</p>"""
+
+@app.route("/area/<float:largura>/<float:comprimento>", methods=('GET',)) #ASSINA UMA ROTA
+def area(largura, comprimento):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
+   
+    return f"""<h1>A área informada: {largura*comprimento}</h1>
+    <ul><li><p>Altura: {largura}</p></ul></li><ul><li><p>Largura: {comprimento}</p></ul></li>
+    """
