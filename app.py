@@ -60,3 +60,10 @@ def area(largura, comprimento):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
     return f"""<h1>A área informada: {largura*comprimento}</h1>
     <ul><li><p>Altura: {largura}</p></ul></li><ul><li><p>Largura: {comprimento}</p></ul></li>
     """
+
+@app.route("/potencia/<float:p1>/<float:p2>", methods=('GET',)) #ASSINA UMA ROTA
+def area(p1, p2):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
+   
+    return f"""<h1>A POTÊNCIA informada: {p1**p2}</h1>
+    <ul><li><p>VALOR 1: {p1}</p></ul></li><ul><li><p>VALOR 2: {p2}</p></ul></li>
+    """
