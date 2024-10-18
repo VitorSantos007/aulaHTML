@@ -1,4 +1,4 @@
-from flask import (Flask, request) # IMPORTA O FLASK
+from flask import (Flask, render_template, request) # IMPORTA O FLASK
 
 app = Flask (__name__) #CRIA UMA INSTÂNCIA
 
@@ -68,30 +68,11 @@ def potencia(p1, p2):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
     <ul><li><p>VALOR 1: {p1}</p></ul></li><ul><li><p>VALOR 2: {p2}</p></ul></li>
     """
 
-#@app.route("/tabuada/<float:p1>", methods=('GET',)) #ASSINA UMA ROTA
-#def tabuada(p1):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
-   
-    return f"""
-    <ul><li><p>{p1} X 1 = {p1*1} </p></ul></li> 
-    <ul><li><p>{p1} X 2 = {p1*2} </p></ul></li> 
-    <ul><li><p>{p1} X 3 = {p1*3} </p></ul></li>
-    <ul><li><p>{p1} X 4 = {p1*4} </p></ul></li> 
-    <ul><li><p>{p1} X 5 = {p1*5} </p></ul></li> 
-    <ul><li><p>{p1} X 6 = {p1*6} </p></ul></li>
-    <ul><li><p>{p1} X 7 = {p1*7} </p></ul></li> 
-    <ul><li><p>{p1} X 8 = {p1*8} </p></ul></li> 
-    <ul><li><p>{p1} X 9 = {p1*9} </p></ul></li>
-    <ul><li><p>{p1} X 10 = {p1*10} </p></ul></li>
-    """
 
 
-@app.route("/tabuada/<float:p1>", methods=('GET',)) #ASSINA UMA ROTA
-def tabuada(p1: float ):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
+@app.route("/tabuada/<int:numero>", methods=('GET',)) #ASSINA UMA ROTA
+def tabuada(numero: float ):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
 
-    html2 = f"<h1>TABUADA</h1>"
 
-    for i in range(11):
-        html = p1 * i
-        html2 += f"<ul><li><p>{p1} X {i} = {html}</p></ul></li>"
     
-    return html2
+    return render_template('tabuada.html', numero=numero)
