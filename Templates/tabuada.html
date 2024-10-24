@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabuada</title>
-</head>
-<body>
-
+    {% extends 'layout.html' %}
+    {% block content %}
     <form>
         <label>DIGITE UM NÚMERO</label>
         <input type="number" name="numero"/>
@@ -21,5 +14,4 @@
         {%endfor%}
         {% endif %}
     </ul>
-</body>
-</html>
+    {% endblock %}
