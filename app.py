@@ -69,10 +69,12 @@ def potencia(p1, p2):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
     """
 
 
+@app.route("/tabuada")
+@app.route("/tabuada/<numero>", methods=("GET",)) #ASSINA UMA ROTA
+def tabuada(numero= None ):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
 
-@app.route("/tabuada/<int:numero>", methods=('GET',)) #ASSINA UMA ROTA
-def tabuada(numero: float ):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
-
-
+    if 'numero' in request.args:
+        numero = request.args.get('numero')
+        numero = int(request.args.get('numero'))
     
     return render_template('tabuada.html', numero=numero)
