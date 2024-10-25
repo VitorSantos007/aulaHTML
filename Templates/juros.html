@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<form>
+    <ul>
+    <li>
+        <label>DIGITE O DINHEIRO INVESTIDO </label>
+        <input type="number" step=".01" name="nmr"/>
+    </li>
+
+    <li>
+        <label>DIGITE O TEMPO DO INVESTIMENTO (EM MESES) </label>
+        <input type="number" step=".01" name="tp"/>
+    </li>
+
+    <li>
+    <label>DIGITE A PORCENTAGEM (AO ANO) </label>
+    <input type="number" step=".01" name="pct"/>
+    </li>
+
+    <li>
+        <label>DIGITE OS APORTES MENSAIS </label>
+        <input type="number" step=".01" name="apt"/>
+        </li>
+    </ul>
+
+    <button>Calcular</button>
+</form>
+
+<ul>
+    {% if nmr%}
+    {% for p in range(1,2)%}
+        <p>CALCULO</p>
+        <li>{{nmr}} x {{pct}} x {{tp}} x {{apt}}</li>
+        <p>JUROS</p>
+        <li>{{nmr*pct*tp*apt}}</li>
+    {%endfor%}
+    {% endif %}
+</ul>
+{% endblock %}

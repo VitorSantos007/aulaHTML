@@ -1,0 +1,22 @@
+    {% extends 'layout.html' %}
+    {% block content %}
+    <form>
+        <label>Entre na sua conta</label><br>
+            <input type="email" name="em"/><br><br>
+            <input type="password" name="snh"/><br><br>
+            <input type="submit"/>
+    </form>
+
+
+    {% if em and snh %}
+    {% if em == 'aluno@senai.br' and snh == 'senai' %}
+    <h3>Usuário Logado com sucesso</h3>
+    <hr>
+    {% else %}
+    <h3>Usuário ou senha incorretos, tente novamente</h3>
+    <hr>
+
+    {% endif %}
+    {% endif %}
+
+    {% endblock %}
