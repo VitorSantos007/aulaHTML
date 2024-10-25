@@ -22,6 +22,8 @@ def index(): # FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>
     """
 
@@ -41,6 +43,8 @@ def galeria(): # FUNÇÃO RESPONSÁVEL PELA PÁGINA
             <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
             <li><a href="/teste">TESTE</a></li>
             <li><a href="/juros">JUROS</a></li>
+            <li><a href="/login">LOGIN</a></li>
+            <li><a href="/imc">IMC</a></li>
     </ul>
 """
 
@@ -60,6 +64,8 @@ def contato(): # FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>
     """
 
@@ -78,6 +84,8 @@ def sobre(): # FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>        
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>
     """
 
@@ -102,6 +110,8 @@ def teste():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>
     """
 
@@ -123,6 +133,8 @@ def nmr():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
             <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
             <li><a href="/teste">TESTE</a></li>
             <li><a href="/juros">JUROS</a></li>
+            <li><a href="/login">LOGIN</a></li>
+            <li><a href="/imc">IMC</a></li>
         </ul>
         """
     
@@ -140,6 +152,8 @@ def nmr():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
             <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
             <li><a href="/teste">TESTE</a></li>
             <li><a href="/juros">JUROS</a></li>
+            <li><a href="/login">LOGIN</a></li>
+            <li><a href="/imc">IMC</a></li>
         </ul>
     """
 
@@ -157,6 +171,8 @@ def nmr():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
             <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
             <li><a href="/teste">TESTE</a></li>
             <li><a href="/juros">JUROS</a></li>
+            <li><a href="/login">LOGIN</a></li>
+            <li><a href="/imc">IMC</a></li>
         </ul>
     """
 
@@ -178,6 +194,8 @@ def nsb():# FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>"""
 
 @app.route("/area/<float:largura>/<float:comprimento>", methods=('GET',)) #ASSINA UMA ROTA
@@ -198,6 +216,8 @@ def area(largura, comprimento):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>
     """
 
@@ -219,6 +239,8 @@ def potencia(p1, p2):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
         <li><a href="/potencia/10.0/5.0">POTENCIA</a></li>
         <li><a href="/teste">TESTE</a></li>
         <li><a href="/juros">JUROS</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/imc">IMC</a></li>
     </ul>
     """
 
@@ -263,3 +285,12 @@ def login(em = None, snh = None ):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
         snh = request.args.get ('snh')
     
     return render_template('login.html', em=em, snh=snh)
+
+@app.route("/imc")
+def imc(peso = None, alt = None ):# FUNÇÃO RESPONSÁVEL PELA PÁGINA
+
+    if 'peso' and 'alt' in request.args:
+        peso = float (request.args.get('peso'))
+        alt = float (request.args.get ('alt'))
+    
+    return render_template('IMC.html', peso=peso, alt=alt)

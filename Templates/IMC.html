@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form>
+    <label>DIGITE O PESO (EM KG)</label>
+    <input type="number" name="peso"/><br><br>
+    <label>DIGITE A ALTURA (EM METROS)</label>
+    <input type="number" step=".01" name="alt"/><br>
+    <button>Calcular</button>
+</form>
+
+
+<ul>
+    {% if peso %}
+    {% for p in range(1,2)%}
+        <p>DADOS</p>
+        <li>{{peso}} x {{alt}}</li>
+        <p>CALCULO</p>
+        <li>{{peso/(alt*alt)}}</li>
+    {%endfor%}
+    {% endif %}
+</ul>
+
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>IMC     </th>
+            <th> | CLASSIFICAÇÃO  </th>
+            <th> | GRAU</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Menor que 18,5 </td>
+            <td> | Magreza  </td>
+            <td> | 0</td>
+        </tr>
+
+        <tr>
+            <td>Entre 18,5 e 24,9 </td>
+            <td> | Normal  </td>
+            <td> | 0</td>
+        </tr>
+
+        <tr>
+            <td>Entre 25,0 e 29,9 </td>
+            <td> | Sobrepeso  </td>
+            <td> | I</td>
+        </tr>
+
+        <tr>
+            <td>Entre 30,0 e 39,9 </td>
+            <td> | Obesidade  </td>
+            <td> | II</td>
+        </tr>
+
+        <tr>
+            <td>Maior que 40,0 </td>
+            <td> | Obesidade Grave  </td>
+            <td> | III</td>
+        </tr>
+       
+    </tbody>
+</table>
+
+
+{% endblock %}
